@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container jumbotron">
+        <h1>{{ portfolio.title }}</h1>
+        <img class="card-img-top" src="{{ portfolio.image.url }}">
+        <p>{{ portfolio.description }}</p>
+        <a href="{% url 'portfolio' %}">돌아가기</a>
+    </div>
+
+{% endblock %}

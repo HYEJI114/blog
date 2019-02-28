@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load staticfiles %}
+
+<main role="main">
+
+    <section class="jumbotron text-center">
+      <div class="container">
+        <img src="{% static 'cat.jpg' %}" alt="">
+        <h1 class="jumbotron-heading">My Portfolio</h1>
+        <p class="lead text-muted">내가 만든 작품들</p>
+
+      </div>
+    </section>
+
+    <div class="album py-5 bg-light">
+            <div class="container">
+                {% for portfolio in portfolios.all %}
+                <div class="row">
+                <a href="{% url 'detailport' portfolio.id %}">  
+                <div class="col-md-4">
+                    <div class="card mb-4 shadow-sm">
+                      <img class="card-img-top" src="{{ portfolio.image.url }}">
+                      <div class="card-body">
+                        <h4>{{ portfolio.title }}</h4>
+                        <p class="card-text">{{ portfolio.description }}</p>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+  </main>
+
+{% endblock %}
